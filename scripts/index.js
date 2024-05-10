@@ -12,7 +12,28 @@ let teams = [
 window.onload = function(){
     
     initDropdown();
+    // grabing thebutton from html page from its id 
+    let theButton = document.querySelector("#theButton");
+
+    // when the button is clicked it calls the displayFootTeam
+    theButton.addEventListener("click",displayFootballTeam);
 }
+// displays the detail about thr football team
+function displayFootballTeam(){
+
+    // get the dropdown from the page
+    let theDropdown = document.querySelector("#footballSelect");
+
+    let resultsParagraph = document.querySelector("#results");
+
+    let selectedIndex = theDropdown.selectedIndex;
+
+    let selectedTeam = teams[selectedIndex];
+
+    resultsParagraph.innerHTML = `you selected the ${selectedTeam.name} (${selectedTeam.code}) who will play ${selectedTeam.plays}`
+
+}
+
 function initDropdown(){
     let theDropdown = document.querySelector("#footballSelect")
 
