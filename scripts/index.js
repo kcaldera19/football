@@ -1,5 +1,5 @@
 "use strict"
-
+debugger;
 console.log("I am working here");
 
 let teams = [
@@ -14,9 +14,11 @@ window.onload = function(){
     initDropdown();
     // grabing thebutton from html page from its id 
     let theButton = document.querySelector("#theButton");
-
+    let the form = document.querySelector("#aForm") 
     // when the button is clicked it calls the displayFootTeam
     theButton.addEventListener("click",displayFootballTeam);
+
+    
 }
 // displays the detail about thr football team
 function displayFootballTeam(){
