@@ -1,20 +1,24 @@
 "use strict"
-
+// just to check if its working
 console.log("I am working here");
 
+// objects with in the array. they are put outside the window.log functon
 let teams = [
     { code: "DAL", name: "Dallas Cowboys", plays: "Arlington, TX" },
     { code: "DEN", name: "Denver Broncos", plays: "Denver, CO" },
     { code: "HOU", name: "Houston Texans", plays: "Houston, TX" },
     { code: "KAN", name: "Kansas City Chiefs", plays: "Kansas City, MO" },
 ];
+
 // waits for the window to be loaded 
 window.onload = function(){
-    
+    // call the function that loads the team into the dropdown ist we created
     initDropdown();
+
     // grabing button and form element from the html page by their ID
     let theButton = document.querySelector("#theButton");
     let footballForm = document.querySelector("#footballForm");
+
     // when the button is clicked it calls the displayFootTeam function
     theButton.addEventListener("click",displayFootballTeam);
     
@@ -45,7 +49,7 @@ window.onload = function(){
    
     
 }
-// displays the detail about the football team
+// displays the detail about the football team.
 function displayFootballTeam(){
 
     // gselects the dropdown element with the ID footballSelect and stores it in a variable
@@ -60,21 +64,25 @@ function displayFootballTeam(){
     resultsParagraph.innerHTML = `you selected the ${selectedTeam.name} (${selectedTeam.code}) who will play ${selectedTeam.plays}`
 
 }
-
+// this function builds the options for the dropdown from our array of objects(teams)
 function initDropdown(){
     // grabs the dropdown element from the page
     let theDropdown = document.querySelector("#footballSelect")
 
     // number of from the list of teams from the teams array
     let numberOfTeams = teams.length;
+
     // create a default "Select a team "option
     let selectOption = document.createElement("option");
     selectOption.textContent ="Select a team";
     selectOption.value ="";
+
+
     theDropdown.appendChild(selectOption);
 
-        // looping through the teams array
-    for(let i =0; i<numberOfTeams; i ++){
+       
+    // looping through the teams array I started with 1 because I wanted to skip the first one
+    for(let i =1; i<numberOfTeams; i ++){
 
         // create a new option element for each team
         let newOption = document.createElement("option");
