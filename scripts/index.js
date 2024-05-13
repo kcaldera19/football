@@ -17,14 +17,24 @@ window.onload = function(){
     let footballForm = document.querySelector("#footballForm");
     // when the button is clicked it calls the displayFootTeam
     theButton.addEventListener("click",displayFootballTeam);
+    
     footballForm.addEventListener("submit",function(event){
+        
         // prevents the form to be submitted
         event.preventDefault();
         displayFootballTeam();
         // to make sure the function returns at the end
         return false;
     });
-    
+    let theDropdown = document.querySelector("#footballSelect");
+    theDropdown.addEventListener("change",function(){
+        let resultsParagraph = document.querySelector("#results");
+        if(resultsParagraph.textContent && theDropdown.selectedIndex === 0){
+            resultsParagraph.textContent = "";
+        }
+    });
+
+   
     
 }
 // displays the detail about thr football team
@@ -48,6 +58,10 @@ function initDropdown(){
 
     // number of from the list of teams
     let numberOfTeams = teams.length;
+    let selectOption = document.createElement("option");
+    selectOption.textContent ="Select a team";
+    selectOption.value ="";
+    theDropdown.appendChild(selectOption);
 
         // creating loops
     for(let i =0; i<numberOfTeams; i ++){
